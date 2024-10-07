@@ -243,6 +243,7 @@ impl EventHandler for Handler {
 
     async fn interaction_create(&self, ctx: Context, interaction_data: Interaction) {
 
+        #[allow(clippy::single_match)]
         match interaction_data {
             Interaction::Command(inbound_command_data) => {
 
@@ -500,9 +501,7 @@ impl EventHandler for Handler {
                         LogLevel::Warning
                     )
                 }
-            }
-
-            Interaction::Ping(_ping_interaction) => {}
+            },
 
             _ => {}
         }
